@@ -3,6 +3,7 @@ import Navbar from '../UIComponents/NavBar'
 import HeroSection from '../UIComponents/HeroSection'
 import BookingAd from "../UIComponents/BookingAd";
 import Dishes from '@/UIComponents/Dishes';
+import ReviewCarousel from '@/UIComponents/ReviewCarousel';
 
 const Home = () => {
  
@@ -12,6 +13,7 @@ const Home = () => {
         <HeroSection/>
         <BookingAd/>
         <Dishes/>
+        <ReviewCarousel/>
     </div>
   )
 }
