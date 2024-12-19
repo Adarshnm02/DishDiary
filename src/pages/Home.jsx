@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../UIComponents/NavBar'
 import HeroSection from '../UIComponents/HeroSection'
 import BookingAd from "../UIComponents/BookingAd";
+import Dishes from '@/UIComponents/Dishes';
 
 const Home = () => {
  
@@ -10,6 +11,7 @@ const Home = () => {
         <Navbar/>
         <HeroSection/>
         <BookingAd/>
+        <Dishes/>
     </div>
   )
 }
