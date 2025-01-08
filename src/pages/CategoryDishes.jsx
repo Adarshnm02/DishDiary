@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Navbar from '@/UIComponents/NavBar';
 import Footer from '@/UIComponents/Footer';
-
+import {ShoppingBag} from 'lucide-react'
 
 const CategoryDishes = () => {
     const { category } = useParams();
@@ -43,17 +43,22 @@ const CategoryDishes = () => {
     return (
         <div className="min-h-screen flex flex-col">
             <Navbar/>
-            <main className="flex-grow">
+            <main className="flex-grow container mx-auto my-20">
                 <motion.h2 
-                    className="text-5xl text-center mt-20 mb-10"
+                    className="text-5xl text-center mt-10 mb-10"
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    {category} Dishes
+                     <h2 className="text-4xl lg:text-5xl font-bold">
+                        Exploring <span className="text-orange-600">{category}</span> Dishes
+                    </h2>
+                    <p className="text-gray-600 text-lg">
+                        Discover our selection of mouthwatering {category.toLowerCase()} specialties
+                    </p>
                 </motion.h2>
                 <motion.div 
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mx-20"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mx-4 sm:mx-8 lg:mx-20"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
@@ -66,16 +71,19 @@ const CategoryDishes = () => {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.3, delay: index * 0.05 }}
                             >
-                                <Card>
-                                    <CardHeader>
-                                        <img
+                                <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden bg-white">
+                                    <CardHeader className="p-0 overflow-hidden">
+                                        <div className='relative overflow-hidden'>
+
+                                           <motion.img
                                             src={dish.strMealThumb}
                                             alt={dish.strMeal}
-                                            className="w-full h-auto rounded-t-lg"
-                                        />
+                                            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                                            />
+                                        </div>
                                     </CardHeader>
                                     <CardContent>
-                                        <CardTitle className="text-lg text-center">
+                                        <CardTitle className="text-lg text-center line-clamp-2 h-14">
                                             {dish.strMeal}
                                         </CardTitle>
                                     </CardContent>
@@ -106,18 +114,25 @@ const CategoryDishes = () => {
                 </div>
 
                 <motion.div 
-                    className="mt-20 flex justify-center items-center"
+                    className="mt-20 mb-16 flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16 bg-white rounded-2xl shadow-lg p-8"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                    <div className="mr-10">
-                        <img src="/images/Dish_in_table.jpg" className="w-[500px] rounded-2xl" alt="Burger" />
+                    <div className="lg:w-1/2">
+                        <img src="/images/Dish_in_table.jpg" className="w-full max-w-[500px] rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300" 
+                        alt="Delicious dish on table" />
                     </div>
-                    <div className="flex flex-col justify-center items-center text-center">
-                        <h1 className="text-2xl font-semibold">Order your Food Now</h1>
-                        <p>Are you hungry? Time for some food!</p>
-                        <Button className="mt-4">Order Now</Button>
+                    <div className="lg:w-1/2 flex flex-col justify-center items-center text-center space-y-4">
+                        <h1 className="text-3xl font-bold text-gray-800">Ready to Order?</h1>
+                        <p className="text-lg text-gray-600 max-w-md">
+                            Satisfy your cravings with our delicious selection of {category.toLowerCase()} dishes. 
+                            Fresh, flavorful, and ready to be served!
+                        </p>
+                        <Button className="mt-6 bg-orange-600 hover:bg-orange-700">
+                            <ShoppingBag className="mr-2 h-4 w-4" />
+                            Order Now
+                        </Button>
                     </div>
                 </motion.div>
             </main>

@@ -1,39 +1,91 @@
-import React from 'react';
+import React from "react";
 import { motion } from "framer-motion";
-import { Menu } from 'lucide-react';
-import { Button } from "@/components/ui/button";  
+import { Menu, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+      },
+    },
+  };
+
   return (
-    <div 
-      className="relative h-[34vw] my-8 bg-cover bg-center mx-7 md:mx-20 rounded-2xl" 
-      style={{ backgroundImage: 'url(/images/Dish.jpg)' }}
-    >
-      <motion.div 
-        initial={{ opacity: 0, x: -100 }} 
-        animate={{ opacity: 1, x: 0 }}   
-        transition={{
-          type: "spring",      
-          stiffness: 60,       
-          damping: 12,           
-        }}
-        className="absolute bottom-[10%] left-[6vw] max-w-[50%] flex flex-col items-start gap-[1.5vw] animate-fadeIn sm:left-[5vw] sm:max-w-[60%] sm:bottom-[8%] lg:max-w-[40%] lg:left-[8vw] lg:bottom-[12%]"
+    <div className="relative w-full px-4 sm:px-6 lg:px-8 mt-32">
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="relative h-[60vh] sm:h-[65vh] lg:h-[70vh] rounded-3xl overflow-hidden"
       >
-        <h2 className="font-medium text-white text-[max(4.5vw,22px)] sm:text-[max(5vw,24px)] lg:text-[max(3.5vw,26px)]">
-          Order your favorite food here
-        </h2>
-        <p className="text-white text-[1vw] sm:text-[1.2vw] lg:text-[0.9vw]">
-          Choose from a diverse menu featuring a delectable array of dishes crafted with the finest ingredients and culinary expertise. Our mission is to satisfy your cravings and elevate your dining experience, one delicious meal at a time.
-        </p>
-        <Button 
-          className="bg-white text-[#747474] font-medium px-[2.3vw] py-[1vw] rounded-full text-[max(1vw,13px)] sm:px-[3vw] sm:py-[1.5vw] sm:text-[max(1.2vw,14px)] lg:px-[2vw] lg:py-[1.2vw] lg:text-[max(1vw,15px)] border-none"
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent z-10" />
+        <motion.div
+          initial={{ scale: 1.2 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url(/images/Dish.jpg)",
+            backgroundPosition: "center 30%",
+          }}
+        />
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="relative z-20 h-full flex flex-col justify-center max-w-2xl mx-auto sm:ml-12 lg:ml-24 p-6 sm:p-8"
         >
-          <Menu icon="Menu" className="mr-2 h-4 w-4" />
-          View Menu
-        </Button>
+          <motion.h2
+            variants={itemVariants}
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
+          >
+            Discover Your Next
+            <span className="block text-orange-400">Favorite Dish</span>
+          </motion.h2>
+
+          <motion.p
+            variants={itemVariants}
+            className="text-lg sm:text-xl text-gray-200 mb-8 max-w-xl"
+          >
+            Choose from a diverse menu featuring a delectable array of dishes
+            crafted with the finest ingredients and culinary expertise.
+          </motion.p>
+
+          <motion.div variants={itemVariants} className="flex gap-4">
+            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 border-none">
+              <Menu className="mr-2 h-5 w-5" />
+              View Menu
+            </Button>
+            <Button
+              variant="outline"
+              className="bg-white/10 hover:bg-white/20 text-white px-8 py-6 rounded-full text-lg font-medium backdrop-blur-sm transition-all duration-300 hover:scale-105 border-white/30"
+            >
+              Explore More
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </motion.div>
+        </motion.div>
       </motion.div>
     </div>
   );
-}
+};
 
 export default HeroSection;
