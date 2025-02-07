@@ -1,8 +1,8 @@
-import React from 'react'
-import { Facebook, Twitter, Instagram, Mail } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Separator } from "@/components/ui/separator"
+import React from "react";
+import { Facebook, Twitter, Instagram, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 
 const Footer = () => {
   return (
@@ -12,23 +12,46 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">About DishDiary</h3>
             <p className="text-sm">
-            DishDiary is your go-to platform for discovering delicious recipes and connecting with food enthusiasts around the world.
+              DishDiary is your go-to platform for discovering delicious recipes
+              and connecting with food enthusiasts around the world.
             </p>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="/" className="text-sm hover:underline">Home</a></li>
-              <li><a href="/explore" className="text-sm hover:underline">Recipes</a></li>
-              <li><a href="/explore" className="text-sm hover:underline">Categories</a></li>
-              <li><a href="/404" className="text-sm hover:underline">About Us</a></li>
+              <li key="home">
+                <a href="/" className="text-sm hover:underline">
+                  Home
+                </a>
+              </li>
+              <li key="recipes">
+                <a href="#" className="text-sm hover:underline">
+                  Recipes
+                </a>
+              </li>
+              <li key="categories">
+                <a href="/explore" className="text-sm hover:underline">
+                  Categories
+                </a>
+              </li>
+              <li key="about-us">
+                <a href="/about-us" className="text-sm hover:underline">
+                  About Us
+                </a>
+              </li>
             </ul>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
-            <p className="text-sm mb-2">Stay updated with our latest recipes!</p>
+            <p className="text-sm mb-2">
+              Stay updated with our latest recipes!
+            </p>
             <div className="flex space-x-2">
-              <Input type="email" placeholder="Enter your email" className="bg-primary-foreground text-primary" />
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                className="bg-primary-foreground text-primary"
+              />
               <Button variant="secondary">Subscribe</Button>
             </div>
           </div>
@@ -53,8 +76,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
-
+export default Footer;

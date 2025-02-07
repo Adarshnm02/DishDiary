@@ -58,8 +58,8 @@ function Navbar() {
             {[
               { path: "/", icon: Home, label: "Home" },
               { path: "/explore", icon: Compass, label: "Explore"},
-              { path: "/404", icon: PenSquare, label: "Add a Review" },
-              { path: "/404", icon: Phone, label: "Contact" },
+              { path: "/addReview", icon: PenSquare, label: "Add a Review" },
+              { path: "/contact", icon: Phone, label: "Contact" },
             ].map(({ path, icon: Icon, label }) => (
               <NavigationMenuItem key={path}>
                 <NavigationMenuLink asChild>
