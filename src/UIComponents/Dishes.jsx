@@ -27,6 +27,11 @@ const Dishes = () => {
     getAllCategory();
   }, []);
 
+  const handleCategoryClick = (category) => {
+    // Navigate to explore page with the selected category
+    navigate('/explore', { state: { selectedCategory: category } });
+  };
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentCategories = categories.slice(startIndex, endIndex);
@@ -57,7 +62,7 @@ const Dishes = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               className="cursor-pointer"
-              onClick={() => navigate(`/dishes/${item.strCategory}`)}
+              onClick={() => handleCategoryClick(item.strCategory)}
             >
               <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 h-full">
                 <CardHeader className="p-4 space-y-0">
@@ -70,7 +75,7 @@ const Dishes = () => {
                   </div>
                 </CardHeader>
                 <CardContent className="text-center p-4">
-                  <CardTitle className=" text-lg font-semibold">
+                  <CardTitle className="text-lg font-semibold">
                     {item.strCategory}
                   </CardTitle>
                 </CardContent>
@@ -83,7 +88,6 @@ const Dishes = () => {
           </p>
         )}
       </div>
-
 
       <div className="flex justify-center mt-10">
         <Button

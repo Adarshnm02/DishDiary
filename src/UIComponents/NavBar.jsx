@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Home, PenSquare, Phone, User, LogOut, ChefHat } from 'lucide-react';
+import { Home, PenSquare, Phone, User, LogOut, ChefHat, Compass } from 'lucide-react';
 
 import {
   NavigationMenu,
@@ -57,8 +57,9 @@ function Navbar() {
           <NavigationMenuList className="space-x-2">
             {[
               { path: "/", icon: Home, label: "Home" },
-              { path: "/add-review", icon: PenSquare, label: "Add a Review" },
-              { path: "/contact", icon: Phone, label: "Contact" },
+              { path: "/explore", icon: Compass, label: "Explore"},
+              { path: "/404", icon: PenSquare, label: "Add a Review" },
+              { path: "/404", icon: Phone, label: "Contact" },
             ].map(({ path, icon: Icon, label }) => (
               <NavigationMenuItem key={path}>
                 <NavigationMenuLink asChild>

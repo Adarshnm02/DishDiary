@@ -2,8 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Menu, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -70,11 +72,14 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex gap-4">
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 border-none">
+            <Button
+            onClick={() => navigate('/explore')} 
+            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105 border-none">
               <Menu className="mr-2 h-5 w-5" />
               View Menu
             </Button>
             <Button
+            onClick={() => navigate('/explore')}
               variant="outline"
               className="bg-white/10 hover:bg-white/20 text-white px-8 py-6 rounded-full text-lg font-medium backdrop-blur-sm transition-all duration-300 hover:scale-105 border-white/30"
             >
