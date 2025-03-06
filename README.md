@@ -63,10 +63,6 @@ Built with **React** and styled with **Tailwind CSS**, it offers a seamless expe
 
 ## 🔗 Project Links
 
-- [DishDiary GitHub Repository](https://github.com/Adarshnm02/DishDiary)  
 - [Live Demo](https://dish-diary-seven.vercel.app/)
 
----
-
-## ❤️ Made with love by [Adarsh NM](https://github.com/Adarshnm02)  
 
